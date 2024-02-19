@@ -3,14 +3,12 @@ export class StandardColor {
     description: string | undefined;
     price: number | undefined;
 }
-
 export class StandardModel {
     code: string | undefined;
     colors: StandardColor[] | undefined;
     description: string | undefined;
     imageurl: string | undefined;
 }
-
 export class ConfigDetails {
     description: string | undefined;
     id: number | undefined;
@@ -18,14 +16,12 @@ export class ConfigDetails {
     range: number | undefined;
     speed: number | undefined;
 }
-
 export class ConfigOptions {
     configs : ConfigDetails[] | undefined;
     towHitch : boolean | undefined;
     yoke: boolean | undefined;
 
 }
-
 export class StateModel {
     model : StandardModel | undefined;
     config: ConfigOptions | undefined;

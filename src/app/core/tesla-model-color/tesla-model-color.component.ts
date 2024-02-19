@@ -21,6 +21,7 @@ import { StandardColor, StandardModel } from '../../models/tesla.models';
   templateUrl: './tesla-model-color.component.html',
   styleUrl: './tesla-model-color.component.scss',
 })
+
 export class TeslaModelColorComponent {
   teslaModels: StandardModel[] | undefined;
   selectedColor: string | undefined ;
@@ -55,8 +56,6 @@ export class TeslaModelColorComponent {
 
     }); 
   }
-  
-
 
   bindSelectedData(): void {
     const data = history.state;

@@ -8,7 +8,6 @@ import { Store, StoreModule } from '@ngrx/store';
 import { AppState, ConfigState  } from '../shared/store-data/store.reducers';
 import { ConfigModel, DataModel } from '../models/tesla.models';
 
-
 @Component({
   selector: 'app-dashbaord',
   standalone: true,
@@ -25,7 +24,7 @@ export class DashbaordComponent {
     { id: 'step2', label: 'Step 2', link: '/step2', active: true },
     { id: 'step3', label: 'Step 3', link: '/step3', active: true }
   ];
-  selectedLevel = 'step1';
+  selectedLevel: string | undefined;
   selectedModel: string | undefined;
   imageUrl: string | undefined;
   modelDetails:any;
@@ -34,6 +33,7 @@ export class DashbaordComponent {
   isRouteActive: boolean | undefined ;
   configData: ConfigModel | undefined;
   modelData: DataModel | undefined;
+
   constructor(private router: Router, private cd: ChangeDetectorRef, private store: Store<AppState>, private config: Store<ConfigState>) { }
 
   ngOnInit(): void {
@@ -57,11 +57,11 @@ export class DashbaordComponent {
               this.checkoutSteps[1].active = true;
               this.checkoutSteps[2].active = true;
             }
-            this.cd.detectChanges();
         } else {
           this.configData = undefined;
           this.checkoutSteps[2].active = true;
         }
+        this.cd.detectChanges();
           },
       error: (error) => console.error('Error downloading photo:', error),
       complete: () => console.info('complete') 
@@ -79,10 +79,10 @@ export class DashbaordComponent {
           } else {
             this.checkoutSteps[2].active = true;
           }
-          this.cd.detectChanges();
         } else {
           this.checkoutSteps[2].active = true;
         }
+        this.cd.detectChanges();
           },
       error: (error) => console.error('Error downloading photo:', error),
       complete: () => console.info('complete') 

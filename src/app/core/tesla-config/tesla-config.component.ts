@@ -20,6 +20,7 @@ import { setModelData } from '../../shared/store-data/store.actions';
   templateUrl: './tesla-config.component.html',
   styleUrl: './tesla-config.component.scss'
 })
+
 export class TeslaConfigComponent {
   configsOptions: ConfigOptions | undefined;
   selectedConfig: ConfigDetails | undefined;
@@ -44,13 +45,12 @@ export class TeslaConfigComponent {
     }
     }
    }
-  
 
    fetchConfigurationDetails(selectedModel:string) {
     if(selectedModel)
        this.subscription =  this.teslaService.fetchDescription(selectedModel).subscribe({
         next: (response: ConfigOptions) => {
-          if (response ) {
+          if (response) {
           //  Handle the response data, which contains ConfigOptions from API
             this.configsOptions = Object.assign([], response);
             this.cd.detectChanges();
