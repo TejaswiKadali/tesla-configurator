@@ -37,10 +37,10 @@ export class TeslaSummaryComponent {
   getModelDetails(): void {
     if(this.selectedModels && this.selectedModels.details && this.selectedModels.details.colors)
     this.selectedModels.details?.colors.forEach((element:StandardColor) =>{
-      if(element.code === this.selectedModels?.color)
+      if(element.code === this.selectedModels?.color){
       this.selectedColor = element.description;
-      if(element?.price)
-      this.rangePrice = element?.price;
+      this.rangePrice = element.price ? element.price : 0 ;
+      }
     })
   }
 

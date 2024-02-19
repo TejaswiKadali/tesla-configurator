@@ -40,6 +40,7 @@ export class TeslaConfigComponent {
       this.selectedDescription = data.config?.description;
       this.hitch = data.config?.towHitch;
       this.steering = data.config?.yoke;
+      this.selectedConfig = data.config?.configDetails;
     } else {
       this.selectedDescription = undefined;
     }
