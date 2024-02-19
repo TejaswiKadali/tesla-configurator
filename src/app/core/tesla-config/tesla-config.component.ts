@@ -36,7 +36,7 @@ export class TeslaConfigComponent {
     const data = history.state;
     if(data.navigationId !== 1) {
     this.fetchConfigurationDetails(data.model?.model);
-    if(data.config?.description) {
+    if(data.config) {
       this.selectedDescription = data.config?.description;
       this.hitch = data.config?.towHitch;
       this.steering = data.config?.yoke;

@@ -9,7 +9,7 @@
     <br>
     <div *ngIf="selectedConfig">
       <span>Range: {{selectedConfig.range}} miles  -
-            Max speed: {{ selectedConfig.speed}}</span>
+            Max speed: {{ selectedConfig.speed}} - Cost: {{selectedConfig.price | currency:'USD'}}</span>
   </div>
     <ng-container *ngIf="configsOptions?.towHitch">
     <label>To hitch ?</label> <input type="checkbox" id="includeYoke" name="hitch"  [(ngModel)]="hitch" (change)="updateHitchChange()">
