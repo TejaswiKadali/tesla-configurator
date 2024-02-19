@@ -4,7 +4,7 @@
       <div>
           <span class="text-fnt">{{selectedDetails?.config?.description}}</span>
           <span class="text-fnt" *ngIf="selectedDetails?.config?.ConfigDetails?.price else temp">{{ selectedDetails?.config?.ConfigDetails?.price | currency:'USD'}} </span>
-      <ng-template #temp>$ 0.00</ng-template>
+      <ng-template #temp>$0.00</ng-template>
         </div>
       <div>
           <span>Range: {{selectedDetails?.config?.configDetails?.range}} miles  -
