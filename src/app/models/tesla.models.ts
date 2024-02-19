@@ -22,10 +22,6 @@ export class ConfigOptions {
     yoke: boolean | undefined;
 
 }
-export class StateModel {
-    model : StandardModel | undefined;
-    config: ConfigOptions | undefined;
-}
 
 export class DataModel {
     imageurl : string | undefined;
@@ -44,9 +40,9 @@ export class ConfigModel {
 export class AppReducer {
     data: DataModel | undefined;
 }
-
 export class ConfigReducre {
     model: ConfigModel | undefined
 }
+
 
 

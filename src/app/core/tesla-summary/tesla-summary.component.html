@@ -1,26 +1,26 @@
 <h1>Step3 : Summary</h1>
-  <h3>Your Tesla {{selectedDetails?.model?.details?.description}}</h3>
+  <h3>Your Tesla {{selectedModels?.details?.description}}</h3>
   <section>
       <div>
-          <span class="text-fnt">{{selectedDetails?.config?.description}}</span>
-          <span class="text-fnt" *ngIf="selectedDetails?.config?.ConfigDetails?.price else temp">{{ selectedDetails?.config?.ConfigDetails?.price | currency:'USD'}} </span>
+          <span class="text-fnt">{{this.selectedConfig?.description}}</span>
+          <span class="text-fnt" *ngIf="this.selectedConfig?.configDetails?.price else temp">{{ this.selectedConfig?.configDetails?.price | currency:'USD'}} </span>
       <ng-template #temp>$0.00</ng-template>
         </div>
       <div>
-          <span>Range: {{selectedDetails?.config?.configDetails?.range}} miles  -
-                Max speed: {{selectedDetails?.config?.configDetails?.speed}}</span>
+          <span>Range: {{this.selectedConfig?.configDetails?.range}} miles  -
+                Max speed: {{this.selectedConfig?.configDetails?.speed}}</span>
       </div>
       <div>
           <span class="text-fnt">{{selectedColor}}</span>
           <span class="text-fnt">{{rangePrice | currency:'USD'}} </span>
       </div>
-      <div *ngIf="selectedDetails?.config?.towHitch || selectedDetails?.config?.yoke">
+      <div *ngIf="this.selectedConfig?.towHitch || this.selectedConfig?.yoke">
           <span class="text-fnt">Town Hitch Package</span>
           <span class="text-fnt">{{hitchPrice | currency:'USD'}}</span>
       </div>
       <div class="box-border">
           <span class="text-fnt">TOTAL COST</span>
-          <span class="text-fnt">{{selectedDetails?.config?.ConfigDetails?.price + rangePrice + hitchPrice | currency:'USD'}} </span>
+          <span class="text-fnt">{{ configPrice + rangePrice + hitchPrice | currency:'USD'}} </span>
       </div>
   </section>
   

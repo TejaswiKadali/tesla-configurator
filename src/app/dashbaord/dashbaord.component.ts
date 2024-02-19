@@ -48,7 +48,7 @@ export class DashbaordComponent {
       next: (data) => {
         if(data){
             this.imageUrl = data?.imageurl;
-            this.modelData = Object.assign([], data);
+            this.modelData =  data;
             if( data?.model && data?.color) {
               this.configData = undefined;
               this.checkoutSteps[1].active = false;
@@ -73,7 +73,7 @@ export class DashbaordComponent {
     this.subscription = this.config.select(state => state.config.model).subscribe({
       next: (data) => {
         if(data){
-          this.configData = Object.assign([], data);
+          this.configData = data;
           if(data?.description && !this.checkoutSteps[1].active) {
             this.checkoutSteps[2].active = false;
           } else {
@@ -91,7 +91,9 @@ export class DashbaordComponent {
 
   nextLevel(value: string, link: string): void {
       this.selectedLevel = value;
-      this.router.navigate([link], { state: {model : this.modelData , config : this.configData }});
+      this.router.navigate([link], { state : {model : this.modelData , config : this.configData }});
+      this.cd.detectChanges();
+
   }
 
   

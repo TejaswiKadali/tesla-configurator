@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { StandardColor } from '../../models/tesla.models';
+import { ConfigModel, DataModel, StandardColor } from '../../models/tesla.models';
 
 @Component({
   selector: 'app-tesla-summary',
@@ -16,26 +16,39 @@ import { StandardColor } from '../../models/tesla.models';
 })
 
 export class TeslaSummaryComponent {
-  selectedDetails: any | undefined;
+  selectedModels: DataModel | undefined ;
+  selectedConfig: ConfigModel | undefined
   selectedColor: string | undefined;
-  rangePrice: number | undefined;
+  rangePrice: number  = 0;
   hitchPrice: number  = 0;
   subscription: Subscription | undefined;
+  configPrice: number  = 0;
 
   constructor(private route: ActivatedRoute){}
 
   ngOnInit(): void {
     const data = history.state;
-    this.selectedDetails = data;
-    if(this.selectedDetails)
-    this.selectedDetails?.model?.details?.colors.forEach((element:StandardColor) =>{
-      if(element.code === data?.model.color)
+    this.selectedModels = data?.model;
+    this.selectedConfig = data?.config
+    this.getModelDetails();
+    this.getConfiguredata(); 
+  }
+
+  getModelDetails(): void {
+    if(this.selectedModels && this.selectedModels.details && this.selectedModels.details.colors)
+    this.selectedModels.details?.colors.forEach((element:StandardColor) =>{
+      if(element.code === this.selectedModels?.color)
       this.selectedColor = element.description;
+      if(element?.price)
       this.rangePrice = element?.price;
-      if(this.selectedDetails?.config?.towHitch || this.selectedDetails?.config?.yoke)
-      this.hitchPrice = 1000;
     })
-   
+  }
+
+  getConfiguredata(): void {
+    if(this.selectedConfig?.towHitch || this.selectedConfig?.yoke)
+    this.hitchPrice = 1000;
+    if(this.selectedConfig?.configDetails && this.selectedConfig?.configDetails.price)
+    this.configPrice = this.selectedConfig?.configDetails.price;
   }
 
 
