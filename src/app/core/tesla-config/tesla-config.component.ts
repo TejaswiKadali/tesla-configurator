@@ -60,7 +60,6 @@ export class TeslaConfigComponent {
           console.error('Error fetching Tesla models:', error);
         },
         complete: () => console.info('complete') 
-  
       }); 
     
   }

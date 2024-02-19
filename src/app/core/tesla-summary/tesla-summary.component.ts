@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { StandardColor, StateModel } from '../../models/tesla.models';
+import { StandardColor } from '../../models/tesla.models';
 
 @Component({
   selector: 'app-tesla-summary',
@@ -14,6 +14,7 @@ import { StandardColor, StateModel } from '../../models/tesla.models';
   templateUrl: './tesla-summary.component.html',
   styleUrl: './tesla-summary.component.scss'
 })
+
 export class TeslaSummaryComponent {
   selectedDetails: any | undefined;
   selectedColor: string | undefined;
