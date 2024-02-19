@@ -27,7 +27,6 @@ export class DashbaordComponent {
   selectedLevel: string | undefined;
   selectedModel: string | undefined;
   imageUrl: string | undefined;
-  modelDetails:any;
   color: string |undefined;
   subscription: Subscription | undefined;
   isRouteActive: boolean | undefined ;
