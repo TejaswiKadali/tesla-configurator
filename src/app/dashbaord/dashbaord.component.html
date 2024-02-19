@@ -1,0 +1,17 @@
+<section class="top-nav">
+    <ul *ngFor="let step of checkoutSteps">
+        <li [ngClass]="{'isActive' : step.id === selectedLevel }"  (click)="nextLevel(step.id, step.link)">
+            <button type="button" id="{{step.id}}" [disabled]="step.active">
+                {{step.label}}
+              </button> </li>
+    </ul>
+    </section>
+    <router-outlet></router-outlet>
+<br>
+    <div *ngIf="imageUrl?.length">
+        <img [src]="imageUrl" alt="Image">
+    </div>
+
+    
+    
+    

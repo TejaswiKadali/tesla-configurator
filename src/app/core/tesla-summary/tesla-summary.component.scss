@@ -1,0 +1,22 @@
+section {
+    div {
+    margin: 1rem;
+
+        span {
+            display: inline-block;
+            width: 25rem;
+            
+        }
+        span.text-fnt {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    div.box-border {
+        border: 2px solid gray;
+        border-left: none;
+        border-right: none;
+        padding: 2px;
+    }
+}

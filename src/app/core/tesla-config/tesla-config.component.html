@@ -1,0 +1,19 @@
+  <h1>Step 2: Select your config and options</h1>
+  <label>Config : </label>
+  <ng-container *ngIf="configsOptions">
+  <select id="configSelect" (change)="getConfigDetails(selectedDescription)" [(ngModel)] = "selectedDescription">
+    <option  value="undefined" selected disabled> Choose... </option>
+      <option *ngFor="let config of configsOptions.configs" [ngValue]="config?.description" >{{config?.description}}</option>
+    </select>
+  </ng-container>
+    <br>
+    <ng-container *ngIf="configsOptions?.towHitch">
+    <label>To hitch ?</label> <input type="checkbox" id="includeYoke" name="hitch"  [(ngModel)]="hitch" (change)="updateHitchChange()">
+   </ng-container>
+    <br>
+    <ng-container *ngIf="configsOptions?.yoke">
+    <label>Yoke steering wheel ?</label> <input type="checkbox" id="includeTow" name="steering" (change)="updateHitchChange()"  [(ngModel)]="steering">
+    </ng-container>
+
+
+
