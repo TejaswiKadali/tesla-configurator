@@ -3,14 +3,13 @@
   <section>
       <div *ngIf="selectedConfig?.description">
           <span class="text-fnt">{{selectedConfig?.description}}</span>
-          <span class="text-fnt" *ngIf="selectedConfig?.configDetails?.price else temp">{{ selectedConfig?.configDetails?.price | currency:'USD'}} </span>
-      <ng-template #temp>$0.00</ng-template>
-      <div >
-        <span>Range: {{selectedConfig?.configDetails?.range}} miles  -
-              Max speed: {{ selectedConfig?.configDetails?.speed}}</span>
-    </div>
+          <span class="text-fnt">{{ selectedConfig?.configDetails?.price | currency:'USD'}} </span>
+        
         </div>
-      
+        <br>
+             <span>Range: {{selectedConfig?.configDetails?.range}} miles  -
+              Max speed: {{ selectedConfig?.configDetails?.speed}}</span>
+              <br>
       <div>
           <span class="text-fnt">{{selectedColor}}</span>
           <span class="text-fnt">{{rangePrice | currency:'USD'}} </span>

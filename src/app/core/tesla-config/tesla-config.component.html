@@ -15,7 +15,7 @@
     <label>To hitch ?</label> <input type="checkbox" id="includeYoke" name="hitch"  [(ngModel)]="hitch" (change)="updateHitchChange()">
    </ng-container>
     <br>
-    <ng-container *ngIf="configsOptions?.yoke">
+    <ng-container *ngIf="configsOptions?.yoke && hitch">
     <label>Yoke steering wheel ?</label> <input type="checkbox" id="includeTow" name="steering" (change)="updateHitchChange()"  [(ngModel)]="steering">
     </ng-container>
 
