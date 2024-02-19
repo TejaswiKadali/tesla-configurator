@@ -4,12 +4,9 @@
       <div *ngIf="selectedConfig?.description">
           <span class="text-fnt">{{selectedConfig?.description}}</span>
           <span class="text-fnt">{{ selectedConfig?.configDetails?.price | currency:'USD'}} </span>
-        
         </div>
-        <br>
              <span>Range: {{selectedConfig?.configDetails?.range}} miles  -
               Max speed: {{ selectedConfig?.configDetails?.speed}}</span>
-              <br>
       <div>
           <span class="text-fnt">{{selectedColor}}</span>
           <span class="text-fnt">{{rangePrice | currency:'USD'}} </span>
