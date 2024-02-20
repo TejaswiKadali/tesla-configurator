@@ -30,8 +30,12 @@ export class TeslaModelColorComponent {
   downloadPhoto: FileReader | undefined;
   modelDetails: StandardModel | undefined;
   subscription: Subscription | undefined;
+  imageUrl: string | undefined;
+
 
   private readonly teslaService = inject(TeslaConfigService);
+  private readonly url = 'https://interstate21.com/tesla-app/images';
+
 
   constructor(private cd: ChangeDetectorRef,private store: Store<AppState>, private route: ActivatedRoute){}
 
@@ -76,32 +80,18 @@ export class TeslaModelColorComponent {
     })
     this.teslaColors =  this.modelDetails?.colors
     this.sendModelDetails();
-   
   }
 
   fetchImageDetails(value : string | undefined) {
     this.selectedColor = value;
-    const reader = new FileReader();
-    if(this.selectedModel &&  this.selectedColor) {
-    this.subscription = this.teslaService.downloadPhoto(this.selectedModel,this.selectedColor).subscribe( {
-      next: (imageBlob: Blob) => {
-        reader.readAsDataURL(imageBlob);
-        reader.onload = () => {
-          //  Handle the response i.e imageBlob, which contains Images
-          this.downloadPhoto = reader;
-          this.sendModelDetails();
-        };
-      },
-      error: (error) => console.error('Error downloading photo:', error),
-      complete: () => console.info('complete') 
-      }
-    );
-    } 
+    if(this.selectedModel &&  this.selectedColor) 
+    this.imageUrl = `${this.teslaService.API}/${this.selectedModel}/${this.selectedColor}.jpg`
+    this.sendModelDetails();
   }
 
   sendModelDetails(): void {
     this.store.dispatch(setData({ data : {
-      imageurl : this.downloadPhoto?.result as string,
+      imageurl : this.imageUrl,
       model : this.selectedModel,
       details: this.modelDetails,
       color: this.selectedColor

@@ -12,12 +12,14 @@
             Max speed: {{ selectedConfig.speed}} - Cost: {{selectedConfig.price | currency:'USD'}}</span>
   </div>
     <ng-container *ngIf="configsOptions?.towHitch">
-    <label>To hitch ?</label> <input type="checkbox" id="includeYoke" name="hitch"  [(ngModel)]="hitch" (change)="updateHitchChange()">
+    <label>To hitch ? <input type="checkbox" id="includeYoke" name="hitch"  [(ngModel)]="hitch" (change)="updateHitchChange()" /> </label>
    </ng-container>
     <br>
     <ng-container *ngIf="configsOptions?.yoke">
-    <label>Yoke steering wheel ?</label> <input type="checkbox" id="includeTow" name="steering" (change)="updateHitchChange()"  [(ngModel)]="steering">
+    <label>Yoke steering wheel ?<input type="checkbox" id="includeTow" name="steering" (change)="updateHitchChange()"  [(ngModel)]="steering" /> </label> 
     </ng-container>
 
+
+    
 
 

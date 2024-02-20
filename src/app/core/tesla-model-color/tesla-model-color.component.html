@@ -1,14 +1,17 @@
   <h1>Step1 : Choose your Model and Color</h1>
-<label>Model :</label>
+<label>Model :
 <select (change)="fetchColorDetails(selectedModel)" id="modelSelect" [(ngModel)] = "selectedModel">
     <option  value="undefined" selected disabled> Choose... </option>
     <option *ngFor="let model of teslaModels"  [ngValue]="model.code" >{{model?.description}}</option>
   </select>
+</label>
 <ng-container *ngIf="selectedModel">
-<label>Color :</label>
+<label>Color :
   <select  (change)="fetchImageDetails(selectedColor)" id="colorSelect" [(ngModel)] = "selectedColor">
     <option value="undefined" selected disabled> Choose... </option>
     <option *ngFor="let color of teslaColors" [ngValue]="color?.code">{{color?.description}}</option>
   </select>
+</label>
+
 </ng-container>
 

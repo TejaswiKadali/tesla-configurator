@@ -11,14 +11,10 @@ export class TeslaConfigService {
 
   private readonly http = inject(HttpClient);
 
-  private readonly API = 'https://interstate21.com/tesla-app/images';
-
-  downloadPhoto(model: string, color: string) {
-    return this.http.get(`${this.API}/${model}/${color}.jpg`, { responseType: 'blob' })
-  }
+  public readonly API = 'https://interstate21.com/tesla-app/images';
 
   fetchModels() {
-     return this.http.get<StandardModel[]>('/models')
+     return this.http.get<StandardModel[]>('/models');
   }
 
   fetchDescription(model: string){

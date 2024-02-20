@@ -79,13 +79,13 @@ export class TeslaConfigComponent {
 
   updateConfigurationData(): void {
     this.configStore.dispatch(setModelData({ model : {
-      configDetails: this.selectedConfig,
+      configDetails: this.selectedConfig,  
       description: this.selectedDescription,
-      towHitch: this.hitch,
+      towHitch: this.hitch, 
       yoke: this.steering
-       }
- }));
-  }
+       }         
+     }));   
+   }   
 
       
   updateHitchChange(): void {
