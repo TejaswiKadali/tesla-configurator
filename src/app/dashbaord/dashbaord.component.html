@@ -5,13 +5,16 @@
                 {{step.label}}
               </button> </li>
     </ul>
-    </section>
+</section>
+
     <router-outlet></router-outlet>
+    
 <br>
 <br>
-    <div *ngIf="imageUrl?.length" class="text-center">
-        <img [src]="imageUrl" alt="Image" width="800" height="200">
-    </div>
+
+<div *ngIf="imageUrl" class="text-center">
+    <img [src]="imageUrl" alt="Image" width="800" height="200">
+</div>
 
     
     

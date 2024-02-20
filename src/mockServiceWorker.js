@@ -106,6 +106,10 @@ self.addEventListener('fetch', function (event) {
     return
   }
 
+  if(request.url.includes("interstate")){
+    return
+  }
+
   // Generate unique request ID.
   const requestId = crypto.randomUUID()
   event.respondWith(handleRequest(event, requestId))
